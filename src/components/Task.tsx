@@ -14,18 +14,35 @@ type TaskProps = {
 
 function Task({ task, onDelete, onChecked }: TaskProps) {
   return (
-    <li className="flex space-x-1 pt-5">
-      <input
-        className="form-input"
-        type="checkbox"
-        checked={task.isDone}
-        onChange={(e) => onChecked(e.target.checked)}
-      />
-      <div className={task.isDone ? "bg-green-400" : undefined}>
-        {task.text}
+    <div className="grid-itm">
+      <div className="flex flex-col h-full">
+        <div className="h-3/4 w-full">
+          <div className={task.isDone ? "line-through" : undefined}>
+            {task.text}
+          </div>
+        </div>
+        <div className="h-1/4 w-full flex justify-between">
+          <button
+            className={
+              task.isDone
+                ? "btn w-1/2 m-1 bg-blue-500 hover:bg-blue-400"
+                : "btn w-1/2 m-1 bg-green-500 hover:bg-green-400"
+            }
+            onClick={() => {
+              task.isDone ? onChecked(false) : onChecked(true);
+            }}
+          >
+            {task.isDone ? "Отмена" : "ОК"}
+          </button>
+          <button
+            className="btn w-1/2 m-1 bg-red-500 hover:bg-red-400"
+            onClick={onDelete}
+          >
+            Удалить
+          </button>
+        </div>
       </div>
-      <button onClick={onDelete}>Удалить</button>
-    </li>
+    </div>
   );
 }
 

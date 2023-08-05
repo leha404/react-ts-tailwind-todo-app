@@ -4,6 +4,16 @@
 
 @layer components{
   .btn {
-    @apply pointer-events-auto ml-8 rounded-md bg-indigo-600 px-3 py-2 text-[0.8125rem] font-semibold leading-5 text-white hover:bg-indigo-500
+    @apply pointer-events-auto rounded-md bg-indigo-600 px-3 py-2 text-[0.8125rem] font-semibold leading-5 text-white hover:bg-indigo-500
   }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 200px);
+  grid-auto-rows: 200px;
+}
+
+.grid-itm {
+  @apply bg-gray-300 p-3 m-1 rounded-lg
 }
